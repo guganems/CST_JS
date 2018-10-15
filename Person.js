@@ -15,8 +15,12 @@ function Student(name, surname, personalNumber, studentId){
 
     this.subjects = new Array();
 
-    this.addSubject = function(subjectName, subjectId){
-        this.subjects.push(new Subject(subjectName, subjectId));
+    this.addSubject = function(newSubjectId, subjectsArray){
+        for(let i = 0; i < subjectsArray.length; i++){
+            if(subjectsArray[i].subjectId == newSubjectId){
+                this.subjects.push(subjectsArray[i]);
+            }
+        }
     };
 }
 
@@ -29,7 +33,8 @@ var subjects = new Array();
 var students = new Array();
 subjects.push(new Subject("JS", "SW1"));
 students.push(new Student("Guga", "Nemsitsveridze", "1234", "CST123"));
-students[0].addSubject("DA", "DASDASD");
+students[0].addSubject("SW1", subjects);
+students[0].addSubject("SW2", subjects);
 
 console.log(students);
 console.log(subjects);
