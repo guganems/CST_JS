@@ -53,3 +53,11 @@ function insert_Row(){
     col2.innerHTML = "Row" + rowNum + " cell2";
     
 }
+
+function changeContent(rowNumber, columnNumber, text){
+    row = document.getElementById('myTable').rows[rowNumber];
+    // row-S !!!
+    cell = row.getElementsByTagName('td')[columnNumber];
+
+    cell.innerHTML = text;
+}
