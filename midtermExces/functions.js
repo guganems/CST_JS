@@ -5,3 +5,11 @@ function js_style(){
     // სკრიპტის მიბმა არ დაგავიწყდეს
     div.style.color = 'green';
 }
+
+function getFormvalue(){
+    let firstname = document.forms['form1']['fname'].value;
+    let lastname = document.forms['form1']['lname'].value;
+
+    document.write(firstname + '<br />');
+    document.write(lastname);
+}
