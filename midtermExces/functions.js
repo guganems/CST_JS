@@ -61,3 +61,17 @@ function changeContent(rowNumber, columnNumber, text){
 
     cell.innerHTML = text;
 }
+
+function createTable(rowNum, colNum){
+    table = document.getElementById('myTable');
+
+    for (let i = 1; i <= rowNum; i++){
+        row = document.createElement('tr');
+        table.appendChild(row);
+        for (let j = 1; j <= colNum; j++){
+            cell = document.createElement('td');
+            row.appendChild(cell);
+            cell.innerHTML = "Row-" + i + " Col-" + j;
+        }
+    }
+}
