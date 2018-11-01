@@ -136,3 +136,21 @@ function showRandomImage(){
     imageTag.setAttribute('width', images[randomNumber].width);
     imageTag.setAttribute('height', images[randomNumber].height);
 }
+
+function highlight(){
+    let boldWordsCount = document.getElementsByTagName('b').length;
+
+    for (let i = 0; i < boldWordsCount; i++){
+        let boldWord = document.getElementsByTagName('b')[i];
+        boldWord.style.background = 'green';
+    }
+}
+
+function removeHighlight(){
+    let boldWordsCount = document.getElementsByTagName('b').length;
+
+    for (let i = 0; i < boldWordsCount; i++){
+        let boldWord = document.getElementsByTagName('b')[i];
+        boldWord.style.background = 'none';
+    }
+}
