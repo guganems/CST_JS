@@ -35,3 +35,21 @@ function getAttributes(){
     document.write("target:  " + target + "<br />");
     document.write("type:  " + type);
 }
+
+function insert_Row(){
+    let table = document.getElementById('sampleTable');
+    
+    let row = document.createElement("tr");
+    let col1 = document.createElement("td");
+    let col2 = document.createElement("td");
+
+    table.appendChild(row);
+    row.appendChild(col1);
+    row.appendChild(col2);
+
+    let rowNum = document.getElementById('sampleTable').rows.length++;
+
+    col1.innerHTML = "Row" + rowNum + " cell1";
+    col2.innerHTML = "Row" + rowNum + " cell2";
+    
+}
