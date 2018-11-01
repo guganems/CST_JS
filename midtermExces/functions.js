@@ -85,3 +85,15 @@ function removecolor(){
         }
     }
 }
+
+function getOptions(){
+    let select = document.getElementById('mySelect');
+
+    let selectOptions = new Array();
+
+    for (let i = 0; i < select.length; i++){
+        selectOptions.push(select.options[i].value);
+    }
+
+    alert(select.length + "\n" + selectOptions.join("\n"));
+}
