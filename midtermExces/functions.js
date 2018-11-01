@@ -13,3 +13,9 @@ function getFormvalue(){
     document.write(firstname + '<br />');
     document.write(lastname);
 }
+
+function setBackgroundColorOfParagraph(paragraphId, color){
+    paragraph = document.getElementById(paragraphId);
+
+    paragraph.style.background = color;
+}
