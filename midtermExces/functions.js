@@ -19,3 +19,19 @@ function setBackgroundColorOfParagraph(paragraphId, color){
 
     paragraph.style.background = color;
 }
+
+function getAttributes(){
+    element = document.getElementById('w3r');
+
+    href = element.getAttribute('href');
+    hreflang = element.getAttribute('hreflang');
+    rel = element.getAttribute('rel');
+    target = element.getAttribute('target');
+    type = element.getAttribute('type');
+    
+    document.write("href:  " + href + "<br />");
+    document.write("hreflang:  " + hreflang + "<br />");
+    document.write("rel:  " + rel + "<br />");
+    document.write("target:  " + target + "<br />");
+    document.write("type:  " + type);
+}
