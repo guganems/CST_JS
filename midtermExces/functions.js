@@ -97,3 +97,12 @@ function getOptions(){
 
     alert(select.length + "\n" + selectOptions.join("\n"));
 }
+
+function calculate(){
+    let radius = document.forms['calculateRadius']['radius'].value;
+
+    let volume = Math.pow(radius, 3) * Math.PI * (4/3);
+
+    let volumeHTML = document.forms['calculateRadius']['volume'];
+    volumeHTML.value = volume;
+}
