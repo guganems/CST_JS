@@ -106,3 +106,33 @@ function calculate(){
     let volumeHTML = document.forms['calculateRadius']['volume'];
     volumeHTML.value = volume;
 }
+
+function showRandomImage(){
+    let images = [
+        {
+            src: "http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg",
+            width: "240",
+            height: "160"
+        },
+
+        {
+            src: "http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg",
+            width: "320",
+            height: "195"
+        },
+
+        {
+            src: "http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg",
+            width: "500",
+            height: "343"
+        }
+    ];
+
+    let randomNumber = Math.floor(Math.random() * 3);
+
+    let imageTag = document.getElementById('randomImage');
+
+    imageTag.setAttribute('src', images[randomNumber].src);
+    imageTag.setAttribute('width', images[randomNumber].width);
+    imageTag.setAttribute('height', images[randomNumber].height);
+}
