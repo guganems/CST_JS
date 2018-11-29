@@ -16,7 +16,6 @@ async function init() {
 
     $("#usersTable>tbody>tr").click(async function(){
         let $this = $(this);
-        console.log($this.data('user'));
         let posts = await request(`https://jsonplaceholder.typicode.com/posts?userId=${$this.data("user").id}`);
 
         let $postsTable = $("#postsTable>tbody");
@@ -24,9 +23,9 @@ async function init() {
         $tr = $('<tr>');
         $postsTable.append($tr);
         $tr.append(`
-            <td>ID</td>
-            <td>title</td>
-            <td>body</td>
+            <th>ID</th>
+            <th>title</th>
+            <th>body</th>
         `);
         for (let post of posts){
             $tr = $('<tr>');
@@ -37,6 +36,10 @@ async function init() {
                 <td>${post.body}</td>
             `);
         }
+    });
+
+    $("#postsTable>tbody").click(async function(){
+        
     });
 
     users.forEach(async user => {
