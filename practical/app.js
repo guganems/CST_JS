@@ -29,6 +29,7 @@ async function init() {
         `);
         for (let post of posts){
             $tr = $('<tr>');
+            $tr.data("post", post);
             $postsTable.append($tr);
             $tr.append(`
                 <td>${post.id}</td>
@@ -38,8 +39,44 @@ async function init() {
         }
     });
 
-    $("#postsTable>tbody").click(async function(){
-        
+    var postsTableTr = document.getElementById('postsTable');
+    $("#postsTable>tbody").on("click", "tr", async function(){
+        var modal = document.getElementById('myModal');
+        var span = document.getElementsByClassName("close")[0];
+        modal.style.display = "block";
+
+        let $this = $(this);
+        let comments = await request(`https://jsonplaceholder.typicode.com/posts/${$this.data('post').id}/comments`);
+
+        let $commentsTable = $("#commentsTable>tbody");
+        $commentsTable.html("");
+        $tr = $('<tr>');
+        $commentsTable.append($tr);
+        $tr.append(`
+            <th>ID</th>
+            <th>title</th>
+            <th>body</th>
+        `);
+        for (let comment of comments){
+            $tr = $('<tr>');
+            $commentsTable.append($tr);
+            $tr.append(`
+                <td>${comment.id}</td>
+                <td>${comment.name}</td>
+                <td>${comment.body}</td>
+            `);
+        }
+
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     });
 
     users.forEach(async user => {
@@ -56,6 +93,9 @@ async function init() {
     });
     //@TODO remove (DELETE BUTTON)
 }
+
+
+
 
 console.log("before init");
 init();
