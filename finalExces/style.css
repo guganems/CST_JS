@@ -1,0 +1,23 @@
+.card{
+  margin-bottom: 20px;
+}
+.avatar-img{
+  width: 48px;
+}
+.row-statistics{
+  margin-bottom: 16px;
+}
+
+.container{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 600px;
+  margin: 0 auto;
+}
+#createNewDiv{
+  margin-bottom: 20px;
+}
+
+#imagePreview{
+  border: 2px dashed cyan; /* my apologies for this awkward style */
+}
