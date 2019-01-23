@@ -71,8 +71,52 @@ function addCard(title, description, imageUrl){
                         <button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-comment-o"
                                 aria-hidden="true"></i> Comment</button>
                     </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-primary btn-block" onclick="updateData(this)"><i class="fa fa-comment-o"
+                                aria-hidden="true"></i> UPDATE</button>
+                    </div>
                 </div>
             </div>
         </div>
     `);
+}
+
+function updateData(me){
+    $('#newPostModal').modal();
+    modal = document.getElementById('newPostModal');
+    tempModal = document.getElementById('newPostModal').innerHTML;
+    imgSrc = me.parentNode.parentNode.parentNode.parentNode.childNodes[3].src;
+    title = me.parentNode.parentNode.parentNode.childNodes[1].innerHTML;
+    description = me.parentNode.parentNode.parentNode.childNodes[3].innerHTML;
+    form = modal.childNodes[1].childNodes[1].childNodes[3].childNodes[1];
+
+    modalFileInput = form.childNodes[1].childNodes[3].childNodes[1].src = imgSrc;
+    modalTitle = form.childNodes[3].childNodes[3].value = title;
+    miodalDescription = form.childNodes[5].childNodes[3].value = description;
+
+    postButton = modal.childNodes[1].childNodes[1].childNodes[3].childNodes[3].childNodes[1];
+   
+    if (document.getElementById('updateButton') == null){
+        modal.childNodes[1].childNodes[1].childNodes[3].childNodes[3].removeChild(postButton);
+
+        updateButton = document.createElement('a');
+        updateButton.setAttribute('href', '#');
+        updateButton.classList.add('btn');
+        updateButton.classList.add('btn-success');
+        updateButton.setAttribute('id', 'updateButton');
+        updateButton.innerHTML = "UPDATE";
+        modal.childNodes[1].childNodes[1].childNodes[3].childNodes[3].prepend(updateButton);
+    }
+
+    updateButton.addEventListener('click', function(){
+        me.parentNode.parentNode.parentNode.parentNode.childNodes[3].src = form.childNodes[1].childNodes[3].childNodes[1].src;
+        me.parentNode.parentNode.parentNode.childNodes[1].innerHTML = form.childNodes[3].childNodes[3].value;
+        me.parentNode.parentNode.parentNode.childNodes[3].innerHTML = form.childNodes[5].childNodes[3].value;
+
+        modal.innerHTML = tempModal;
+        $('#newPostModal').modal('hide');
+    });
+
+    console.log(modal);
+    console.log(tempModal);
 }
