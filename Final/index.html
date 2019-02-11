@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="container">
+  <button class="btn btn-success" onclick="addUser();" >New User</button>
+  <div id="userContainer" class="row">
+    
+  </div>
+</div>
+
+<div id="userDialog" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitleId"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+
+          <img id="uploadPreview" class="rounded-circle"/>
+          <div class="form-group">
+            <input id="avatarUpload" type="file">
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" id="nameInput" placeholder="Name">
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" id="usernameInput" placeholder="Username">
+            <div class="invalid-feedback">
+              Username must be at least 4 characters and at most 15 characters, containing only alphanumeric symbols and dot.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="email" class="form-control" id="emailInput" placeholder="Email">
+            <div class="invalid-feedback">
+              Input is not a valid email address.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" id="phoneInput" placeholder="Phone Number">
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" id="websiteInput" placeholder="Website">
+            <div class="invalid-feedback">
+              Input is not a valid website.
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveButton">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="request.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="js/bootstrap.bundle.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
